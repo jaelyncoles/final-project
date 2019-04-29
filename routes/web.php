@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('users', 'usersController');
+Route::resource('venue_post', 'venue_postController');
+Route::resource('genres', 'genresController');
+Route::resource('fav', 'user_favController');
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

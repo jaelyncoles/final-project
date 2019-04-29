@@ -16,7 +16,7 @@ class CreateVenuePostTable extends Migration
         Schema::create('venue_post', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->string('description');
+            $table->text('description');
             $table->string('title');
             $table->string('photo');
 

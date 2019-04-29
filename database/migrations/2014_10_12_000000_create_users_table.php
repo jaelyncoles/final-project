@@ -21,9 +21,11 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->integer('zip');
-            $table->string('venue');
-            $table->string('contactName');
+            $table->string('city');
+            $table->string('venueName');
+            $table->boolean('venue')->defualt(false);
+            $table->boolean('admin')->default(false);
+            $table->timestamp('approved_at')->nullable();
 
         });
     }
