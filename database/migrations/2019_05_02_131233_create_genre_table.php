@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserFavTable extends Migration
+class CreateGenreTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateUserFavTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_fav', function (Blueprint $table) {
+        Schema::create('genre', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->integer('userId');
-            $table->string('venue');
+            $table->string('name');
         });
     }
 
@@ -28,6 +27,6 @@ class CreateUserFavTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_fav');
+        Schema::dropIfExists('genre');
     }
 }

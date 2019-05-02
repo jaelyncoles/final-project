@@ -2,4 +2,12 @@
 
 @section('content')
 
+<usergenre-component/>
+
+
+
+
+    
 @endsection
+
+

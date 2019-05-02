@@ -11,16 +11,16 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-       
         \App\User::create([
-            'name' => 'Admin',
-            'email' => 'admin@admin.com',
+            'name' => 'Jaelyn Coles',
+            'email' => 'jaelyncoles@gmail.com',
             'email_verified_at' => now(),
-            'password' => bcrypt('verysafepassword'),
+            'password' => bcrypt('Julienne1.'),
             'admin' => 1,
             'approved_at' => now(),
             'city'=>"",
-            'venue'=>false
+            'venue'=>false,
+            'venueName'=>""
         ]);
 
     }

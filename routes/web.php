@@ -17,10 +17,26 @@ Route::get('/', function () {
 
 Route::resource('users', 'usersController');
 Route::resource('venue_post', 'venue_postController');
-Route::resource('genres', 'genresController');
+Route::resource('genres', 'GenresController');
 Route::resource('fav', 'user_favController');
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/approval', 'HomeController@approval')->name('approval');
+    
+    Route::middleware(['approved'])->group(function () {
+        Route::get('/home', 'HomeController@index')->name('home');
+    });
+
+    Route::middleware(['admin'])->group(function () {
+        Route::get('/users', 'UserController@index')->name('admin.users.index');
+        Route::get('/users/{user_id}/approve', 'UserController@approve')->name('admin.users.approve');
+    });
+
+    
+});
+

@@ -1,16 +1,23 @@
 <template>
     <div class="container">
+       <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Example Component</div>
+                    <div class="card-header">Your Favorites</div>
 
                     <div class="card-body">
-                        I'm an example component.
+                        <ul>
+                            <li v-for="genre in genres">
+                            {{ genreName }}
+                            </li>
+        
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </template>
 

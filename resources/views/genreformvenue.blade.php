@@ -2,4 +2,12 @@
 
 @section('content')
 
+<genreform-component/>
+
+
+
+
+    
 @endsection
+
+

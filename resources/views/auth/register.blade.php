@@ -12,16 +12,46 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('User Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="name" autofocus>
 
-                                @error('name')
+                                @error('username')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('City') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="city" type="text" class="form-control @error('city') is-invalid @enderror" name="city" value="{{ old('city') }}" required autocomplete="city" autofocus>
+
+                                @error('city')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                                <div class="col-md-6">
+                                     <input type="checkbox" id="venue" value="{{ old('venue') }}" name="venue">
+                                </div>
+                                <div class="col-md-6">
+                                     <label for="venue" class="col-md-4 col-form-label text-md-right">{{ __('I am an Event Venue') }}</label>
+                                </div> 
+                        </div>
+                        <div class="form-group row">
+                            <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Venue Name') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="venuename" type="text" class="form-control @error('venuename') is-invalid @enderror" name="venuename" value="{{ old('venuename') }}" placeholder="Leave Empty If you're not an Event Venue"required autocomplete="venuename" autofocus>
                             </div>
                         </div>
 
