@@ -13,7 +13,7 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('user', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('username');
             $table->string('email')->unique();
@@ -26,6 +26,8 @@ class CreateUsersTable extends Migration
             $table->boolean('venue')->default(false);
             $table->boolean('admin')->default(false);
             $table->timestamp('approved_at')->nullable();
+            $table->unsignedBigInteger('userfavid')->default(0);
+           
 
         });
     }

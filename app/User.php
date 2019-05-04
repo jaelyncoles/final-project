@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'venue', 'city'];
+        'username', 'email', 'password', 'venue', 'city'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -37,6 +37,6 @@ class User extends Authenticatable
     ];
 
     public function genre (){
-        return $this->hasMany(Genre::class);
+        return $this->hasMany(userfav::class);
     }
 }

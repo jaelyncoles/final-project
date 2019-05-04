@@ -36,7 +36,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/users', 'UserController@index')->name('admin.users.index');
         Route::get('/users/{user_id}/approve', 'UserController@approve')->name('admin.users.approve');
     });
-
+Route::get('/favs','userfavcontroller@favs');
     
 });
 

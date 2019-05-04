@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UserGenre extends Migration
+class Userfav extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,14 @@ class UserGenre extends Migration
      */
     public function up()
     {
-        Schema::create('usergenre', function (Blueprint $table) {
+        Schema::create('userfav', function (Blueprint $table) {
             $table->bigIncrements('id');
-            
-            $table->integer('userid')->unsigned(); 
-            $table->foreign('userid')->references('id')->on('users'); 
-            $table->integer('genreid')->unsigned(); 
-            $table->foreign('genreid')->references('id')->on('genre'); 
-            
+            $table->unsignedBigInteger('genreid');
+            $table->boolean('value')->default(false);
         });
     }
+
+
 
     /**
      * Reverse the migrations.
