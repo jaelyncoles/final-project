@@ -32,11 +32,23 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    // protected $casts = [
+    //     'email_verified_at' => 'datetime',
+    // ];
 
-    public function genre (){
+    public function genres (){
         return $this->hasMany(userfav::class);
+    }
+    public function userimg (){
+        return $this->hasOne(venueImage::class);
+        
+    }
+
+    public function venues(){
+        return $this->hasMany(venuefav::class);
+    }
+
+    public function posts (){
+        return $this->hasMany(venuepost::class);
     }
 }

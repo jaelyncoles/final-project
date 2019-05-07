@@ -92,7 +92,7 @@
         
 <div class="jumbotron jumbotron-fluid">
 <video id="video-background" preload autoplay loop>
-<source src="http://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+<source src="/images/medium.MOV" type="video/mp4">
     
   </video>
 

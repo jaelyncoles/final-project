@@ -7,5 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class userfav extends Model
 {
     //
+
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    public function genres()
+    {
+        return $this->hasMany(genre::class);
+    }
 }
-return $this->belongsTo(Users::class);

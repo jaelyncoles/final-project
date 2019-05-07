@@ -3,23 +3,14 @@
 @section('content')
 
 
-
-@extends('layouts.app')
-
-@section('content')
-
-<genreform-component/>
-
+ <form method="POST" action="{{ route('home') }}"> 
+							@csrf 
+							
+                            
+							<genreform-component/>
 
 
-
-    
-@endsection
-
-
-
-
-
+ </form> 
     
 @endsection
 

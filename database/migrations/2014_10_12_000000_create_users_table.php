@@ -22,12 +22,12 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->string('city')->default("");
-            $table->string('venueName')->default("");
+            $table->string('venuename')->nullable();
+            $table->string('venuedescription')->nullable();
             $table->boolean('venue')->default(false);
             $table->boolean('admin')->default(false);
             $table->timestamp('approved_at')->nullable();
-            $table->unsignedBigInteger('userfavid')->default(0);
-           
+            $table->unsignedBigInteger('venueImageid')->default(0);
 
         });
     }

@@ -19,10 +19,12 @@ window.Vue = require('vue');
 
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
-
-Vue.component('usergenre-component', require('./components/usergenreComponent.vue').default);
-//Vue.component('suggest-component', require('./components/suggestComponent.vue').default);
 Vue.component('genreform-component', require('./components/genreformComponent.vue').default);
+Vue.component('userfavorites-component', require('./components/userfavoritesComponent.vue').default);
+//Vue.component('suggest-component', require('./components/suggestComponent.vue').default);
+Vue.component('userprofile-component', require('./components/userprofileComponent.vue').default);
+Vue.component('venueprofile-component', require('./components/venueprofileComponent.vue').default);
+Vue.component('venues-component', require('./components/venuesComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
