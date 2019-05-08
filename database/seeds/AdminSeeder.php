@@ -18,10 +18,9 @@ class AdminSeeder extends Seeder
             'password' => bcrypt('Julienne1.'),
             'admin' => 1,
             'approved_at' => now(),
-            'city'=>"",
+            'city'=>"Lexington",
             'venue'=>false,
             'venueName'=>""
         ]);
-
     }
 }

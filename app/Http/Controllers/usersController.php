@@ -6,7 +6,6 @@ use App\User;
 
 class UsersController extends Controller
 {
-
     public function index()
     {
         $users = User::whereNull('approved_at')->get();
@@ -24,10 +23,12 @@ class UsersController extends Controller
     }
 
 
-    public function profile(){
+    public function profile()
+    {
         $profile= User::all();
     }
-   public function venueprofile(){
-       $profile= User::where('venue', 1);
-   }
+    public function venueprofile()
+    {
+        $venueprofile= User::where('venue', 1);
+    }
 }

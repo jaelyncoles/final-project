@@ -1,124 +1,131 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>WhatUp!</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <!-- Styles -->
-        <style>
-         body {
-                background-color:black;
-                
-                color: white;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-        
-                margin: 0;
-            }
+    <title>WhatUp!</title>
 
-            .jumbotron {
-                background-color:black;
-                position: relative;
-                z-index:-101;
-            
-            }
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Styles -->
+    <style>
+        body {
+            background-color: black;
 
-            #video-background { 
-                position:relative;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                overflow: hidden;
-                z-index: -100;
-                width:100%;
-                }
+            color: white;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 200;
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-               
-                justify-content: center;
-            }
+            margin: 0;
+        }
 
-             .position-ref {
-                position: relative;
-                
+        .jumbotron {
+            background-color: black;
+            position: relative;
+            z-index: -101;
 
-            } 
+        }
 
-           
-        
-            .content {
-                text-align: center;
-            }
+        #video-background {
+            position: relative;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            overflow: hidden;
+            z-index: -100;
+            width: 100%;
+        }
+
+        .flex-center {
+            align-items: center;
+            display: flex;
+
+            justify-content: center;
+        }
+
+        .position-ref {
+            position: relative;
+
+
+        }
 
 
 
-            .links > a {
-                color: white;
-                
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-            #bottom > a {
-                color:white;
-                font-size: 20px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-                margin-top:0px;
-                padding-bottom:0px;
-            }
-
-            .m-b-md {
-                
-            }
-}
+        .content {
+            text-align: center;
+        }
 
 
-        </style>
-    </head>
-    <body>
-        
-<div class="jumbotron jumbotron-fluid">
-<video id="video-background" preload autoplay loop>
-<source src="/images/medium.MOV" type="video/mp4">
-    
-  </video>
 
-</div>
-  <div class="container flex-center">
-  @if (Route::has('login'))
-                <div id="bottom">
-                    @auth
-                        <a href="{{ route('home') }}">Home </a>
-                    @else
-                        <a href="{{ route('login') }}">Login </a>
+        .links>a {
+            color: white;
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: .1rem;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        #bottom>a {
+            color: white;
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: .1rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            margin-top: 0px;
+            padding-bottom: 0px;
+        }
+
+        .m-b-md {}
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="jumbotron jumbotron-fluid">
+        <video id="video-background" preload autoplay loop>
+            <source src="/images/medium.MOV" type="video/mp4">
+
+        </video>
+
+    </div>
+    <div class="container flex-center">
+        @if (Route::has('login'))
+        <div id="bottom">
+            @auth
+            <a href="{{ route('home') }}">Home </a>
+            @else
+            <a href="{{ route('login') }}">Login </a>
+
+            @if (Route::has('register'))
+            <a href="{{ route('register') }}">Register</a>
             @endif
-        
-  
-</div>             
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <script src="/js/app.js"></script>
+            @endauth
+        </div>
+        @endif
 
-           
-    </body>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+
+
+
+</body>
+
 </html>

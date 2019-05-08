@@ -14,12 +14,18 @@ class venuepostsController extends Controller
      */
     public function index()
     {
-    
-        
-            
-            return view('venueprofile');
-        
+        return view('venueprofile');
     }
+    public function index2()
+    {
+        return view('home');
+    }
+    public function index3()
+    {
+        return view('venueprofilehome');
+    }
+
+    
 
     /**
      * Show the form for creating a new resource.
@@ -28,7 +34,7 @@ class venuepostsController extends Controller
      */
     public function create()
     {
-        //
+        return view('createpost');
     }
 
     /**

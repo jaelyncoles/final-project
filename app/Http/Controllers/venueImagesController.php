@@ -14,7 +14,15 @@ class venueImagesController extends Controller
      */
     public function index()
     {
-        //
+        return view('venueprofile');
+    }
+    public function index2()
+    {
+        return view('home');
+    }
+    public function index3()
+    {
+        return view('venueprofilehome');
     }
 
     /**
@@ -24,7 +32,7 @@ class venueImagesController extends Controller
      */
     public function create()
     {
-        //
+        return view('editimage');
     }
 
     /**
@@ -46,7 +54,6 @@ class venueImagesController extends Controller
      */
     public function show(venueImages $venueImages)
     {
-        //
     }
 
     /**

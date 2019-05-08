@@ -15,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-       // $this->middleware('auth');
+        $this->middleware('auth');
     }
 
     
@@ -25,7 +25,6 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-
     {
         // get the current user's id
         $uid = Auth::id();
@@ -34,19 +33,18 @@ class HomeController extends Controller
         return view('home', compact('userprofile'));
     }
 
-    // public function approval()
-    // {
-    //     return view('approval');
-    // }
+    public function approval()
+    {
+        return view('approval');
+    }
 
-  /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    /**
+       * Store a newly created resource in storage.
+       *
+       * @param  \Illuminate\Http\Request  $request
+       * @return \Illuminate\Http\Response
+       */
     public function store(Request $request)
     {
-        
     }
 }

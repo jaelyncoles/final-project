@@ -1859,8 +1859,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'usergenreComponent',
+  name: "usergenreComponent",
   data: function data() {
     return {};
   },
@@ -1868,7 +1870,7 @@ __webpack_require__.r(__webpack_exports__);
     getGenres: function getGenres() {
       var _this = this;
 
-      axios.get('/favs').then(function (Response) {
+      axios.get("/favs").then(function (Response) {
         _this.favs = Response.data;
 
         for (var i in _this.favs) {
@@ -1880,7 +1882,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    console.log('Component mounted.');
+    console.log("Component mounted.");
     this.getGenres();
   }
 });
@@ -37434,10 +37436,18 @@ var render = function() {
             _c("div", { staticClass: "card-body" }, [
               _c(
                 "ul",
-                _vm._l(_vm.favs, function(fav) {
-                  return _c("li", { key: fav }, [_vm._v(_vm._s())])
-                }),
-                0
+                [
+                  _vm._l(_vm.favs, function(fav) {
+                    return _c("li", { key: fav }, [_vm._v(_vm._s())])
+                  }),
+                  _vm._v(" "),
+                  _vm._l(_vm.uservenues, function(venue) {
+                    return _c("li", { key: venue }, [
+                      _vm._v(_vm._s(_vm.users.venuename))
+                    ])
+                  })
+                ],
+                2
               )
             ])
           ])

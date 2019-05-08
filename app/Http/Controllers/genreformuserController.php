@@ -24,9 +24,7 @@ class genreformuserController extends Controller
      */
     public function create()
     {
-        
-            
-            
+        return view('genreformuser');
     }
 
     /**
