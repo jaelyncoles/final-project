@@ -44,34 +44,12 @@
                         </div>
 
                         <div class="form-group row">
-                            <div class="col-md-6">
-                                <input type="checkbox" id="venue" value="{{ old('venue') }}" name="venue">
+                            <div class="col-md-2">
+                                <input type="checkbox" id="venue" value="1" name="venue">
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-10">
                                 <label for="venue"
                                     class="col-md-4 col-form-label text-md-right">{{ __('I am an Event Venue') }}</label>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="username"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Venue Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="venuename" type="text" class="form-control " name="venuename"
-                                    value="{{ old('venuename') }}"
-                                    placeholder="Leave Empty If you're not an Event Venue" autofocus>
-                            </div>
-                        </div>
-
-
-                        <div class="form-group row">
-                            <label for="venuedescription"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Venue Description') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="venuedescription" type="text" class="form-control " name="venuedescription"
-                                    value="{{ old('venuedescription') }}"
-                                    placeholder="Hours of Operation, DressCode Information about your venue" autofocus>
                             </div>
                         </div>
 

@@ -16,10 +16,18 @@ class CreateVenuepostsTable extends Migration
         Schema::create('venueposts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->unsignedBigInteger('imageid')->default(0);
-            $table->unsignedBigInteger('userid')->default(0);
+            $table->unsignedBigInteger('venue_id')->default(0);
+            //$table->foreign('venueimage_id')->references('id')->on('venueimages');
+            $table->unsignedBigInteger('user_id')->default(0);
+            //$table->foreign('user_id')->references('id')->on('users');
             $table->string('description');
             $table->string('title');
+            //$table->engine = 'InnoDB';
+        });
+
+        Schema::table('venueposts', function ($table) {
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('venue_id')->references('id')->on('venues');
         });
     }
 

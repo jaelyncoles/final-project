@@ -14,7 +14,6 @@ class venuefavsController extends Controller
      */
     public function index()
     {
-        
     }
 
     /**
@@ -24,7 +23,6 @@ class venuefavsController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -46,7 +44,16 @@ class venuefavsController extends Controller
      */
     public function show(venuefav $venuefav)
     {
-        //
+        // get current auth user
+        $venuefavs= userfav::with(array('User'=>function ($query) {
+            $query->where('Users.venue', 1);
+        }))
+        ->orderBy('user_id')->get();
+        
+        // where('user_id');
+        //$venues = User::where('venue', 1)->get();
+
+        return view('favorites', compact('$venuefavs)'));
     }
 
     /**
@@ -81,5 +88,19 @@ class venuefavsController extends Controller
     public function destroy(venuefav $venuefav)
     {
         //
-    }
+    }   
+
+    // public function venuefavs()
+    // {
+    //     // get current auth user
+    //     $venuefavs= userfav::with(array('User'=>function ($query) {
+    //         $query->where('Users.venue', 1);
+    //     }))
+    //     ->orderBy('user_id')->get();
+        
+    //     // where('user_id');
+    //     //$venues = User::where('venue', 1)->get();
+
+    //     return view('favorites', compact('$venuefavs)'));
+    // }
 }

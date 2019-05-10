@@ -30,17 +30,17 @@ Vue.component(
     "suggestions-component",
     require("./components/suggestionsComponent.vue").default
 );
+//Vue.component(
+// "userprofile-component",
+//  require("./components/userprofileComponent.vue").default
+//);
+// Vue.component(
+//     "venueprofile-component",
+//     require("./components/venueprofileComponent.vue").default
+//);
 Vue.component(
-    "userprofile-component",
-    require("./components/userprofileComponent.vue").default
-);
-Vue.component(
-    "venueprofile-component",
-    require("./components/venueprofileComponent.vue").default
-);
-Vue.component(
-    "venues-component",
-    require("./components/venuesComponent.vue").default
+    "venuesform-component",
+    require("./components/venuesformComponent.vue").default
 );
 
 /**

@@ -15,7 +15,7 @@
                         <div class='row'>
                             <div class='col-4-md'>
                                 <div id="profileimg">
-                                    <a href=""> <img src="" /><a>
+                                    <a href="{{ route('') }}"> <img src="" /><a>
 
                                             {{-- route to editimage blade --}}
 
@@ -29,7 +29,7 @@
                                     {{likecount}}
                                 </div>
                                 <div id='venuedescription'>
-                                    <a href="">
+                                    <a href="{{ route('') }}">
                                         <p>#</p>
                                     </a>
 
@@ -50,7 +50,7 @@
                     </div>
 
                     <div id='city'>
-                        <a href="">
+                        <a href="{{ route('') }}">
                             <p> {{$userprofile->city}} </p>
                         </a>
 

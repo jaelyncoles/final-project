@@ -30,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/genreformuser';
+    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -67,20 +67,20 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $isVenue = 0;
+        if (isset($data['venue'])) {
+            $isVenue = 1;
+        }
+        
         $user = User::create([
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'venue' => isset($data->input['venue']),
+            'venue' => $isVenue,
             'city'=>$data['city'],
             
         ]);
-
-        $admin = User::where('id', 1);
-        if ($user->venue) {
-            $admin->notify(new NewUser($user));
-        }
-    
+        
         return $user;
     }
 }

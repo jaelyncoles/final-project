@@ -14,15 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('home','HomeController');
+Route::resource('home', 'HomeController');
 Route::resource('users', 'usersController');
 Route::resource('venuepost', 'venuepostsController');
-Route::resource('userfavs', 'userfavsController');
-Route::get('/genreformuser','genreformuserController@index');
+Route::resource('userfav', 'userfavsController');
+Route::resource('genreformuser', 'genreformuserController');
 
 
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@anon')->name('home');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/approval', 'HomeController@approval')->name('approval');
@@ -35,9 +35,10 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/users', 'UsersController@index')->name('admin.users.index');
         Route::get('/users/{user_id}/approve', 'UsersController@approve')->name('admin.users.approve');
     });
-Route::get('/favs','userfavscontroller@favs');
+    Route::get('/favs', 'userfavscontroller@');
+    Route::get('/venuefavs', 'venuefavscontroller@show');
 
-Route::get('/venueprofile','userscontroller@venueprofile');
-Route::get('/posts','venuefavsController@venueposts');
+    Route::get('/venueprofile', 'userscontroller@venueprofile');
+    Route::get('/posts', 'venuefavsController@venueposts');
+    //Route::get('userprofile', 'genreform');
 });
-

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\userfavs;
+use App\userfav;
 use Illuminate\Http\Request;
 
 class userfavsController extends Controller
@@ -14,7 +14,6 @@ class userfavsController extends Controller
      */
     public function index()
     {
-       
     }
 
     /**
@@ -22,9 +21,14 @@ class userfavsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $userfav = new userfav();
+        //$userfav->id = $request['id'];
+        $userfav->genre_id = $request['genre_id'];
+        $userfav->user_id = $request['user_id'];
+        $userfav->save();
+        return view('home');
     }
 
     /**
@@ -38,8 +42,8 @@ class userfavsController extends Controller
         //
         $userfav = new userfav();
         //$userfav->id = $request['id'];
-        $userfav->userid = $request['userid'];
-        $userfav->genreid = $request['genreid'];
+        $userfav->genre_id = $request['genre_id'];
+        $userfav->user_id = $request['user_id'];
         $userfav->save();
         return view('home');
     }
@@ -52,7 +56,6 @@ class userfavsController extends Controller
      */
     public function show(userfavs $userfavs)
     {
-        
     }
 
     /**
@@ -89,7 +92,11 @@ class userfavsController extends Controller
         //
     }
 
-    public function favs(){
-        $favs= userfavs::all();
+    public function favs()
+    {
+        // get current auth user
+        $favs= userfav::all();
+
+        return view('favorites', compact('$favs)'));
     }
 }

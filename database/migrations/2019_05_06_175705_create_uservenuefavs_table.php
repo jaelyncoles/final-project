@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
+
 use Illuminate\Database\Migrations\Migration;
 
 class CreateUservenuefavsTable extends Migration
@@ -16,8 +17,11 @@ class CreateUservenuefavsTable extends Migration
         Schema::create('uservenuefavs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->unsignedBigInteger('venueid')->default(0);
-            $table->unsignedBigInteger('userid')->default(0);
+            $table->unsignedBigInteger('venue_id')->default(0);
+            // $table->foreign('venue_id')->references('id')->on('users');
+        });
+        Schema::table('uservenuefavs', function ($table) {
+            $table->foreign('venue_id')->references('id')->on('venues');
         });
     }
 

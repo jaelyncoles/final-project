@@ -15,21 +15,27 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
+            // $table->unsignedBigInteger('venueimage_id')->default(0);
+            //
             $table->string('username');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->timestamp('email_verified_at')->useCurrent();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
             $table->string('city')->default("");
-            $table->string('venuename')->nullable();
-            $table->string('venuedescription')->nullable();
+            //$table->string('venuename')->nullable();
+            //$table->string('venuedescription')->nullable();
             $table->boolean('venue')->default(false);
             $table->boolean('admin')->default(false);
-            $table->timestamp('approved_at')->nullable();
-            $table->unsignedBigInteger('venueImageid')->default(0);
-
+            $table->timestamp('approved_at')->useCurrent();
+            //$table->engine = 'InnoDB';
         });
+
+        // Schema::table('users', function ($table) {
+        //     //$table->foreign('venueimage_id')->references('id')->on('venueimages');
+        //    // $table->foreign('venueimage_id')->references('id')->on('venueimages');
+        // });
     }
 
     /**

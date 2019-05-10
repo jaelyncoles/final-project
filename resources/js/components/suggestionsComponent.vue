@@ -2,7 +2,7 @@
 	<div>
 		<div class="card-group">
 			<div class="card">
-				<img class="card-img-top" src="..." alt="Card image cap">
+				<img class="card-img-top" src alt="Card image cap">
 				<div class="card-body">
 					<h5 class="card-title">Card title</h5>
 					<p
@@ -19,7 +19,29 @@
 </template>
 
 <script>
-	export default {};
+	export default {
+		name: "suggestionsComponent",
+		data() {
+			return {};
+		},
+		methods: {
+			getGenres() {
+				axios
+					.get("/favs")
+					.then(Response => {
+						this.favs = Response.data;
+						for (let i in this.favs) {
+							this.favObject.push(this.favs[i]);
+						}
+					})
+					.catch(error => console.log(error));
+			}
+		},
+		mounted() {
+			console.log("Component mounted.");
+			this.getGenres();
+		}
+	};
 </script>
 
 <style lang="scss" scoped>

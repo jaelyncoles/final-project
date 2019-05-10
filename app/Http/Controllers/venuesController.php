@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\venueImages;
+use App\venue;
 use Illuminate\Http\Request;
 
-class venueImagesController extends Controller
+class venuesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,15 +14,7 @@ class venueImagesController extends Controller
      */
     public function index()
     {
-        return view('venueprofile');
-    }
-    public function index2()
-    {
-        return view('home');
-    }
-    public function index3()
-    {
-        return view('venueprofilehome');
+        //
     }
 
     /**
@@ -32,7 +24,7 @@ class venueImagesController extends Controller
      */
     public function create()
     {
-        return view('editimage');
+        //
     }
 
     /**
@@ -43,26 +35,36 @@ class venueImagesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $venues->venue_id = $request['venue_id'];
+        $venues->user_id = $request['user_id'];
+        $venues->venuename = $request['venuename'];
+        $venues->mainimg = $request['mainimg'];
+        $venues->description = $request['description'];
+        
+
+         
+        $venues->save();
+        return view('genreformuser');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\venueImages  $venueImages
+     * @param  \App\venue  $venue
      * @return \Illuminate\Http\Response
      */
-    public function show(venueImages $venueImages)
+    public function show(venue $venue)
     {
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\venueImages  $venueImages
+     * @param  \App\venue  $venue
      * @return \Illuminate\Http\Response
      */
-    public function edit(venueImages $venueImages)
+    public function edit(venue $venue)
     {
         //
     }
@@ -71,10 +73,10 @@ class venueImagesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\venueImages  $venueImages
+     * @param  \App\venue  $venue
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, venueImages $venueImages)
+    public function update(Request $request, venue $venue)
     {
         //
     }
@@ -82,10 +84,10 @@ class venueImagesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\venueImages  $venueImages
+     * @param  \App\venue  $venue
      * @return \Illuminate\Http\Response
      */
-    public function destroy(venueImages $venueImages)
+    public function destroy(venue $venue)
     {
         //
     }

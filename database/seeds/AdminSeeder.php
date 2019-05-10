@@ -11,8 +11,16 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
+        // \App\venueimage::create([
+        //     'mainImg' => '#',
+        //     //'venueimage_id' => 1,
+        //     //'upload_time' => now(),
+        //     'user_id' => 1,
+        //]);
+
         \App\User::create([
             'username' => 'Jaelyn Coles',
+            
             'email' => 'jaelyncoles@gmail.com',
             'email_verified_at' => now(),
             'password' => bcrypt('Julienne1.'),
@@ -20,7 +28,8 @@ class AdminSeeder extends Seeder
             'approved_at' => now(),
             'city'=>"Lexington",
             'venue'=>false,
-            'venueName'=>""
+            //'venueName'=>""
+
         ]);
     }
 }

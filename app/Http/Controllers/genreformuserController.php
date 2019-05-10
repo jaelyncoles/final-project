@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\genreformuser;
+use App\userfav;
 use Illuminate\Http\Request;
 
 class genreformuserController extends Controller
@@ -22,9 +23,15 @@ class genreformuserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('genreformuser');
+        //
+        $userfav = new userfav();
+        //$userfav->id = $request['id'];
+        $userfav->user_id = $request['user_id'];
+        $userfav->genre_id = $request['genre_id'];
+        $userfav->save();
+        return view('home');
     }
 
     /**
@@ -35,11 +42,14 @@ class genreformuserController extends Controller
      */
     public function store(Request $request)
     {
-        $userfav = userfav::store([
-            'id' => $data['id'],
-            'userid' => $data['userid'],
-            'genreid' => $data['genreid']
-        ]);
+        //
+        $userfav = new userfav();
+        //$userfav->id = $request['id'];
+        $userfav->genre_id = $request['genre_id'];
+        $userfav->user_id = $request['user_id'];
+        $userfav->save();
+        
+        return view('home', compact('$request'));
     }
 
     /**
