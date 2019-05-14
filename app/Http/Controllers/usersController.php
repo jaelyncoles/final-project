@@ -8,6 +8,8 @@ class UsersController extends Controller
 {
     public function index()
     {
+        $userprofile = User::findOrFail($user_id);
+
         $users = User::whereNull('approved_at')->get();
         $venues= User::where('venue', 1);
 
@@ -16,6 +18,8 @@ class UsersController extends Controller
 
     public function approve($user_id)
     {
+        $userprofile = User::findOrFail($user_id);
+
         $user = User::findOrFail($user_id);
         $user->update(['approved_at' => now()]);
 

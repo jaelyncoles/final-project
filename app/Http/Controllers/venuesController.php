@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\venue;
 use Illuminate\Http\Request;
 
@@ -35,11 +36,26 @@ class venuesController extends Controller
      */
     public function store(Request $request)
     {
-        $venues->venue_id = $request['venue_id'];
-        $venues->user_id = $request['user_id'];
+        //$userprofile = User::findOrFail($user_id);
+
+        // $venues->venue_id = $request['venue_id'];
+        $img = "/images/venues/default.png";
+        // if the image is not in the form, use the default
+        // else upload the image and use the path and name as the $img variable
+        $venues = new Venue();
+        $venues->user_id = Auth::user()->id;
         $venues->venuename = $request['venuename'];
-        $venues->mainimg = $request['mainimg'];
-        $venues->description = $request['description'];
+
+        $venues->mainimg = $img;
+
+        if ($request->hasFile('image')) {
+            $mainimg = $request->file('image');
+            $name = time().'.'.$mainimg->getClientOriginalExtension();
+            $destinationPath = public_path('/storage/galleryImages/');
+            $img->move($destinationPath, $name);
+            $venuepost->image = $destinationPath . "" . $name;
+        }
+        $venues->description = $request['venuedescription'];
         
 
          

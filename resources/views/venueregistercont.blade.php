@@ -8,11 +8,11 @@
                 <div class="card-header">{{ __('Register as Venue') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{action('venuesController@store')}}">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="username"
+                            <label for="venuename"
                                 class="col-md-4 col-form-label text-md-right">{{ __('Venue Name') }}</label>
 
                             <div class="col-md-6">
@@ -20,6 +20,13 @@
                                     value="{{ old('venuename') }}" placeholder=" " autofocus>
                             </div>
                         </div>
+                        {{-- <div id='postimage' class="form-group row">
+
+
+                            <input type="file" name="img" accept="image/*">
+
+
+                        </div> --}}
 
 
                         <div class="form-group row">

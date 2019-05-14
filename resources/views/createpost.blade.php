@@ -9,22 +9,32 @@
 
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('home') }}">
-                        <div id='postimage'>
-                            @csrf
-                            <form>
-                                <input type="file" name="img" accept="image/*">
-                                <input type="submit">
-                            </form>
-                        </div>
+                    <form method="POST" action="/createpost" enctype="multipart/form-data">
+                        @csrf
+                        <div>
 
-                        <div id='postdescription'>
-                            <label for="description">Tell us about your Event:</label>
+                            {{-- <label  for="title">Title:</label> --}}
+                            <input type='text' placeholder="Title" name="title" id="title">
+                            <br>
 
-                            <textarea id="description" name="description">
+                            <div id='postimage'>
 
+                                <form>
 
-                        </textarea>
+                                    <input style="color:white;" placeholder="Click to choose" type="file"
+                                        name="postimage" id="postimage" accept="image/*">
+
+                                </form>
+                            </div>
+                            <br>
+                            <div id='postdescription'>
+                                {{-- <label for="description">Tell us about your Event:</label> --}}
+
+                                <textarea id="description" placeholder="Tell Us About Your Event" name="description">
+                                    </textarea>
+                                <br>
+                                <button style='color:white;'> Post</button>
+                            </div>
                         </div>
                         {{-- route back to home/profile home --}}
                     </form>

@@ -10,4 +10,8 @@ class venue extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function posts()
+    {
+        return $this->hasMany(venuepost::class);
+    }
 }

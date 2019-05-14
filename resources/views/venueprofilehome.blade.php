@@ -1,80 +1,89 @@
 @extends('layouts.app')
 
 @section('content')
-<?php
-    //dd($venueprofile);
-?>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"> {{ $venueprofile->venueName }}</div>
+                <div class="card-header"> {{ $venues[0]->venuename }}</div>
 
                 <div class="card-body">
                     <div>
                         <div class='row'>
-                            <div class='col-4-md'>
-                                <div id="profileimg">
-                                    <a href="{{ route('') }}"> <img src="" /><a>
+                            {{-- <div class='col'>
+                                <div style="border:1px solid #6699cc;" id="profileimg">
+                                    <img src="{{$venues[0]->mainimg}}" />
 
-                                            {{-- route to editimage blade --}}
+                        </div>
 
-                                </div>
-                                <div id='favorites'>
-                                    <button v-on:click="">Favorites</button>
+
+
+                        {{-- <div id='likebuttoncount'>
+                                    {{likecount}} --}}
+                        {{-- </div> --}}
+
+
+                        <div class='col'>
+                            <div id='venuedescription'>
+                                {{-- // <a href="{{ route('') }}"> --}}
+                                <p>{{$venues[0]->description}}</p>
+                                {{-- </a> --}}
+
+                                {{-- route to venue description edit blade --}}
+
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div id='city'>
+                            {{-- <a href="{{ route('') }}"> --}}
+                            <p> {{$userprofile->city}} </p>
+                            </a>
+
+                            {{-- add route to edit city blade--}}
+                        </div>
+                        <br>
+                        <div class='col'>
+                            <div>
+
+                                <a href="favs">
+
+                                    Favorites
+
                                     {{-- route to favorites blade --}}
-                                </div>
-
-                                <div id='likebuttoncount'>
-                                    {{likecount}}
-                                </div>
-                                <div id='venuedescription'>
-                                    <a href="{{ route('') }}">
-                                        <p>#</p>
-                                    </a>
-
-                                    {{-- route to venue description edit blade --}}
-
-                                </div>
+                                </a>
+                                {{-- route to favorites blade --}}
                             </div>
                         </div>
                     </div>
-                    <div id='venuegenrelist'>
-                        <ul>
-                            <li>
-                            <li>
+                    <div id='newsfeed'>
+                        <h1>Event Feed </h1>
+                        <ul style="list-style: none;">
+                            @foreach($posts as $post)
+                            <li><img src="{{ $post->image }}" /><br>
+                                <h3>{{$post->title}}</h3>
+                                <p>{{$post->description}}<p>
+                            </li>
+                            @endforeach
                         </ul>
-                        <button id='updategenre'> Update </button>
-                        {{-- add route to genreuserform --}}
 
-                    </div>
-
-                    <div id='city'>
-                        <a href="{{ route('') }}">
-                            <p> {{$userprofile->city}} </p>
-                        </a>
-
-                        {{-- add route to edit city blade--}}
-                    </div>
-                    <div id='newsfeed' class='col-8-md'>
-                        <h1>Event Feed <h1>
-                                <ul>
-                                    <li v-for="post in venuePosts" :key="post"> </li>
-                                </ul>
-
-                                <button id='addpost'> Add Post </button>
-                                {{-- route to add post blade --}}
-
+                        <a href="postcreate" id='addpost'> Add Post </a>
+                        {{-- route to add post blade --}}
 
                     </div>
                 </div>
+
+
+
+
+
             </div>
-
         </div>
-
     </div>
-</div>
-</div>
 </div>
 </div>
 

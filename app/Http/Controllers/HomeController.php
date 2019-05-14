@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Auth;
 use App\userfav;
+use DB;
 
 class HomeController extends Controller
 {
@@ -28,24 +29,25 @@ class HomeController extends Controller
     public function index()
     {
         // get the current user's id
-        $uid = Auth::id();
-        $userprofile = User::findOrFail($uid);
+        $user_id = Auth::user()->id;
+        $userprofile = User::findOrFail($user_id);
+        $venues= User::where('venue', 1);
+        $all_genres= DB::select('select * from userfavs where user_id = :user_id ORDER BY id DESC LIMIT 1', array('user_id' => $user_id));
 
-        //dd($userprofile);
 
         if ($userprofile->venue) {
             return view('venueregistercont');
-        } else {
-            return view('genreformuser');
+        } elseif (sizeOf($all_genres)!==0) {
+            return view('home', compact($userprofile));
         }
 
-        return view('home', compact('userprofile'));
+        return view('genreformuser');
     }
 
-    public function approval()
-    {
-        return view('approval');
-    }
+    // public function gohome()
+    // {
+    //     return view('userprofile');
+    // }
 
     /**
        * Store a newly created resource in storage.
@@ -55,15 +57,7 @@ class HomeController extends Controller
        */
     public function store(Request $request)
     {
-        //dd($request);
-        // save the items in the database
-        $userfav = new userfav();
-        //$userfav->id = $request['id'];
-        $userfav->user_id = $request['user_id'];
-        $userfav->genre_id = $request['genre_id'];
-        $userfav->save();
-
-        return view('home', compact('$request'));
+        //
     }
 
     /**
@@ -73,6 +67,8 @@ class HomeController extends Controller
      */
     public function anon()
     {
+        $userprofile = User::findOrFail($user_id);
+
         if (Auth::user()->venue) {
             return view('venueregistercont');
         } else {

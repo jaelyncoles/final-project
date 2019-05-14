@@ -44,12 +44,11 @@
                         </div>
 
                         <div class="form-group row">
-                            <div class="col-md-2">
+                            <div class="col">
                                 <input type="checkbox" id="venue" value="1" name="venue">
-                            </div>
-                            <div class="col-md-10">
-                                <label for="venue"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('I am an Event Venue') }}</label>
+
+
+                                <label for="venue" class="">{{ __('I am an Event Venue') }}</label>
                             </div>
                         </div>
 

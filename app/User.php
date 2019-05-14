@@ -40,18 +40,18 @@ class User extends Authenticatable
     {
         return $this->hasMany(userfav::class);
     }
-    public function userimg()
+    public function venues()
     {
-        return $this->hasOne(venueImage::class);
+        return $this->hasOne(venue::class);
     }
 
-    public function venues()
+    public function venuefav()
     {
         return $this->hasMany(venuefav::class);
     }
 
-    public function posts()
-    {
-        return $this->hasMany(venuepost::class);
-    }
+    // public function posts()
+    // {
+    //     return $this->hasMany(venuepost::class);
+    // }
 }

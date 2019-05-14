@@ -22,6 +22,26 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+
+            color: white;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 200;
+            text-align: center;
+
+
+        }
+
+
+
+        .card {
+
+            background-color: black;
+            margin-top: 50px;
+        }
+    </style>
 </head>
 
 <body>
@@ -30,7 +50,7 @@
 
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/home') }}">
+                <a class="navbar-brand" href="{{ url('home') }}">
                     WhatUp
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"

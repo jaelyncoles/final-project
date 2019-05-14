@@ -31,11 +31,6 @@ class CreateUsersTable extends Migration
             $table->timestamp('approved_at')->useCurrent();
             //$table->engine = 'InnoDB';
         });
-
-        // Schema::table('users', function ($table) {
-        //     //$table->foreign('venueimage_id')->references('id')->on('venueimages');
-        //    // $table->foreign('venueimage_id')->references('id')->on('venueimages');
-        // });
     }
 
     /**

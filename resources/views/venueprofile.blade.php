@@ -15,7 +15,7 @@
                         <div class='row'>
                             <div class='col-4-md'>
                                 <div id="profileimg">
-                                    #
+                                    <img :src="{{$venues->mainimg}}">
                                 </div>
                                 <div id='likebutton'>
                                     <button> <img src='/images/heart.png' /></button>
@@ -34,7 +34,12 @@
                                 <div id='newsfeed' class='col-8-md'>
                                     <h1> Event Feed </h1>
                                     <ul>
-                                        <li v-for="post in venuePosts" :key="post"> </li>
+                                        @foreach($posts as $post)
+                                        <li><img src='{{ $post->image }}' /><br>
+                                            <h1>{{$post->title}}</h1>
+                                            {{$post->description}}
+                                        </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>

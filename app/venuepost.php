@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class venuepost extends Model
 {
-    public function imgpost()
+    public function post()
     {
-        return $this->hasOne(venueImage::class);
+        return $this->belongsTo(venue::class);
     }
 }

@@ -2,7 +2,7 @@
 
 @section('content')
 <?php
-    //dd($userprofile);
+//dd($all_posts);
 ?>
 <div class="container">
     <div class="row justify-content-center">
@@ -14,35 +14,46 @@
                     <div>
                         <div class='row'>
                             <div class='col-4-md'>
-                                <button v-on:click="">Favorites</button>
-                                {{-- route to favorites blade --}}
+
+                                <a href="favs">
+                                    <button> Favorites</button>
+                                    {{-- route to favorites blade --}}
+                                </a>
 
                                 <br>
                                 <div id='city'>
-                                    <a href="">
-                                        <p> {{$userprofile->city}} </p>
-                                    </a>
+
+                                    <h5> {{ $userprofile->city }} </h5>
+
                                     {{-- route to update city blade --}}
                                 </div>
                             </div>
 
-                            <div id='newsfeed' class='col-8-md'>
-                                <h1>Event Feed</h1>
-                                <ul>
-                                    <li v-for="post in venuePosts" :key="post" id='newsFeed'> </li>
+                            <div id='suggested' style="border:1px solid #6699cc;" class='col-8-md'>
+                                <h1>Suggested Events</h1>
+                                <ul style="list-style: none;">
+                                    @foreach($all_posts as $index=>$post)
+                                    @foreach($post as $key => $value)
+                                    <li><img src="{{ $value->image }}" /><br>
+                                        <h1>{{$value->title}}</h1>
+                                        {{$value->description}}
+                                    </li>
+                                    @endforeach
+                                    @endforeach
+
                                 </ul>
 
 
                             </div>
+
                         </div>
+
                     </div>
 
                 </div>
-
             </div>
         </div>
     </div>
-</div>
 </div>
 
 @endsection

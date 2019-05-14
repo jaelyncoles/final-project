@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+use DB;
 use App\userfav;
 use Illuminate\Http\Request;
 
@@ -23,7 +25,10 @@ class userfavsController extends Controller
      */
     public function create(Request $request)
     {
+        $userprofile = User::findOrFail($user_id);
+
         $userfav = new userfav();
+        
         //$userfav->id = $request['id'];
         $userfav->genre_id = $request['genre_id'];
         $userfav->user_id = $request['user_id'];
@@ -40,7 +45,10 @@ class userfavsController extends Controller
     public function store(Request $request)
     {
         //
+        $userprofile = User::findOrFail($user_id);
+
         $userfav = new userfav();
+        // dd($request);
         //$userfav->id = $request['id'];
         $userfav->genre_id = $request['genre_id'];
         $userfav->user_id = $request['user_id'];
@@ -95,8 +103,22 @@ class userfavsController extends Controller
     public function favs()
     {
         // get current auth user
-        $favs= userfav::all();
-
-        return view('favorites', compact('$favs)'));
+        // $userfavid =
+        $user_id = Auth::user()->id;
+        $all_genres= DB::select('select * from userfavs where user_id = :user_id ORDER BY id DESC LIMIT 1', array('user_id' => $user_id))[0];
+        // dd($all_genres);
+        
+        $favs_checked = array();
+        // $all_genres = (array)$favs[0];
+        foreach ($all_genres as $genretype => $checked) {
+            if ($checked == 1 && $genretype !='id') {
+                //dd($checked);
+                array_push($favs_checked, $genretype);
+            }
+        }
+        //dd($favs_checked);
+        
+        
+        return view('favorites', compact('favs_checked'));
     }
 }
