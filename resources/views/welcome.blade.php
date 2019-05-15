@@ -91,7 +91,7 @@
 <body>
 
     <div class="jumbotron jumbotron-fluid">
-        <video id="video-background" autoplay loop>
+        <video id="video-background" preload autoplay loop>
             <source src="/images/medium.MOV" type="video/mp4">
 
         </video>
