@@ -59,32 +59,32 @@
                                 {{-- route to favorites blade --}}
                             </div>
                         </div>
-                    </div>
-                    <div id='newsfeed'>
-                        <h1>Event Feed </h1>
-                        <ul style="list-style: none;">
-                            @foreach($posts as $post)
-                            <li><img src="{{ $post->image }}" /><br>
-                                <h3>{{$post->title}}</h3>
-                                <p>{{$post->description}}<p>
-                            </li>
-                            @endforeach
-                        </ul>
+                        {{-- </div> --}}
+                        <div id='newsfeed'>
+                            <h1>Event Feed </h1>
+                            <ul style="list-style: none;">
+                                @foreach($posts as $post)
+                                <li><img src="{{ $post->image }}" /><br>
+                                    <h3>{{$post->title}}</h3>
+                                    <p>{{$post->description}}<p>
+                                </li>
+                                @endforeach
+                            </ul>
 
-                        <a href="postcreate" id='addpost'> Add Post </a>
-                        {{-- route to add post blade --}}
+                            <a href="postcreate" id='addpost'> Add Post </a>
+                            {{-- route to add post blade --}}
 
+                        </div>
                     </div>
+
+
+
+
+
                 </div>
-
-
-
-
-
             </div>
         </div>
     </div>
-</div>
 </div>
 
 @endsection
