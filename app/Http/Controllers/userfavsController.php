@@ -33,7 +33,7 @@ class userfavsController extends Controller
         $userfav->genre_id = $request['genre_id'];
         $userfav->user_id = $request['user_id'];
         $userfav->save();
-        return view('home');
+        return view('home', compact('userprofile'));
     }
 
     /**
@@ -53,7 +53,7 @@ class userfavsController extends Controller
         $userfav->genre_id = $request['genre_id'];
         $userfav->user_id = $request['user_id'];
         $userfav->save();
-        return view('home');
+        return view('home', compact('userprofile'));
     }
 
     /**

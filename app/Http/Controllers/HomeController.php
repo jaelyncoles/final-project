@@ -34,11 +34,10 @@ class HomeController extends Controller
         $venues= User::where('venue', 1);
         $all_genres= DB::select('select * from userfavs where user_id = :user_id ORDER BY id DESC LIMIT 1', array('user_id' => $user_id));
 
-
         if ($userprofile->venue) {
             return view('venueregistercont');
         } elseif (sizeOf($all_genres)!==0) {
-            return view('home', compact($userprofile));
+            return view('home', compact('userprofile'));
         }
 
         return view('genreformuser');

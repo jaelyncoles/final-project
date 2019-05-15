@@ -9,7 +9,9 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
+                    @isset($userprofile)
                     <h1>{{ $userprofile->username }}</h1>
+                    @endisset
                 </div>
 
                 <div class="card-body">
@@ -30,7 +32,7 @@
                             {{-- route to update city blade --}}
                             {{-- </div> --}}
                         </div>
-
+                        @isset($all_posts)
                         <div id='suggested'>
                             <h1>Suggested Events</h1>
                             <br>
@@ -49,6 +51,7 @@
 
 
                         </div>
+                        @endisset
 
 
 
