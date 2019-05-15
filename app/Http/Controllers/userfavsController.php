@@ -116,9 +116,6 @@ class userfavsController extends Controller
                 array_push($favs_checked, $genretype);
             }
         }
-        //dd($favs_checked);
-        
-        
         return view('favorites', compact('favs_checked'));
     }
 }
