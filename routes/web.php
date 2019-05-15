@@ -10,10 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('suggestions', 'suggestionsController@test');
+
 Route::get('/', function () {
     return view('welcome');
 });
+Auth::routes();
 Route::resource('home', 'HomeController');
 Route::resource('users', 'usersController');
 Route::resource('venuepost', 'venuepostsController');
@@ -24,8 +25,7 @@ Route::resource('venues', 'venuesController');
 Route::get('postcreate', 'venuepostsController@create');
 Route::resource('createpost', 'venuepostsController');
 Route::get('editgenre', 'genreformuserController@editgenre');
-
-Auth::routes();
+Route::get('suggestions', 'suggestionsController@test');
 //Route::get('/home', 'HomeController@anon')->name('home');
 
 Route::middleware(['auth'])->group(function () {
