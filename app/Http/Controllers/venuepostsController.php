@@ -52,7 +52,7 @@ class venuepostsController extends Controller
             //$destinationPath = public_path('/storage/galleryImages/');
             $name = $image->getClientOriginalName(); //public path folder dir
             $image->move($path, $name);
-            $url = $path;
+            $url = "/img/" . $name;
             //dd($url);
             $venuepost->image = $url;
         }
