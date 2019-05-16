@@ -67,7 +67,7 @@
                             <ul style="list-style: none;">
                                 @foreach($posts as $post)
 
-                                <li><img src="/files/{{ $post->image }}" width="300" alt="img"><br>
+                                <li><img src="{{ $post->image }}" width="300" alt="img"><br>
                                     <h3>{{$post->title}}</h3>
                                     <p>{{$post->description}}<p>
                                 </li>

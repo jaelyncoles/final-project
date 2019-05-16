@@ -45,10 +45,17 @@ class venuepostsController extends Controller
         
         $venuepost->title = $request['title'];
         $venuepost->image = "/img/default.png";
-
-        if ($request->hasFile('postimage')) {
-            $path = $request->file('postimage')->store('images');
+        
+        if ($request->file('postimage')) {
+            $newPath = public_path('images');
+            $imgPath = $request->file('postimage')->getClientOriginalName();
+            //echo($newPath . "/" . $imgPath);
+            move_uploaded_file($imgPath, $newPath);
             //$request->file('postimage')->move(public_path('images'), $request->file('postimage')->getClientOriginalName());
+            $path = $request->file('postimage')->store("images");
+            
+            //dd($path);
+            //dd($newPath . "/" . $path);
             $venuepost->image = $path;
         }
         
