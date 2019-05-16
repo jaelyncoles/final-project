@@ -66,14 +66,15 @@
                             <h1>Event Feed </h1>
                             <ul style="list-style: none;">
                                 @foreach($posts as $post)
-                                <li><img src="{{ $post->image }}" /><br>
+
+                                <li><img src="/files/{{ $post->image }}" width="300" alt="img"><br>
                                     <h3>{{$post->title}}</h3>
                                     <p>{{$post->description}}<p>
                                 </li>
                                 @endforeach
                             </ul>
 
-                            <a href="postcreate" id='addpost'> Add Post </a>
+                            <a href=" postcreate" id='addpost'> Add Post </a>
                             {{-- route to add post blade --}}
 
                         </div>

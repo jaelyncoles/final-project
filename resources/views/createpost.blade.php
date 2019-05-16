@@ -17,14 +17,9 @@
                             <input type='text' placeholder="Title" name="title" id="title">
                             <br>
 
-                            <div id='postimage'>
-
-                                <form>
-
-                                    <input style="color:white;" placeholder="Click to choose" type="file"
-                                        name="postimage" id="postimage" accept="image/*">
-
-                                </form>
+                            <div id='postimageholder'>
+                                <input style="color:white;" placeholder="Click to choose" type="file" name="postimage"
+                                    id="postimage">
                             </div>
                             <br>
                             <div id='postdescription'>

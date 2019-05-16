@@ -44,17 +44,12 @@ class venuepostsController extends Controller
         $venuepost = new venuepost();
         
         $venuepost->title = $request['title'];
-        $venuepost->image = "/storage/galleryImages/default.png";
+        $venuepost->image = "/img/default.png";
 
         if ($request->hasFile('postimage')) {
-            $image = $request->file('postimage');
-            $path = $request->postimage->store('img');
-            //$destinationPath = public_path('/storage/galleryImages/');
-            $name = $image->getClientOriginalName(); //public path folder dir
-            $image->move($path, $name);
-            $url = "/img/" . $name;
-            //dd($url);
-            $venuepost->image = $url;
+            $path = $request->file('postimage')->store('images');
+            //$request->file('postimage')->move(public_path('images'), $request->file('postimage')->getClientOriginalName());
+            $venuepost->image = $path;
         }
         
         $venuepost->description= $request['description'];
